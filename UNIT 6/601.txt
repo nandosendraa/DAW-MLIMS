@@ -1,0 +1,53 @@
+a.<name>IES Abastos</name>
+    /secondary-school/name
+    
+b.http://www.iesabastos.org
+
+    /secondary-school/web/node()
+    
+c.Administration of Computer Network Systems
+  Web applications development
+  Microcomputer systems and networks
+  
+    /secondary-school/cycles/cycle/name/node()
+    
+d.id="NISA"
+  id="WAD"
+  id="MSN"
+  
+   /secondary-school/cycles/cycle/@id
+   
+e.year="2009"
+  year="2010"
+  year="2008"
+
+    /secondary-school/cycles/cycle/decreeTitle/@year
+    
+f.<cycle id="MSN">
+    <name>Microcomputer Systems and Networks</name>
+    <grade>Medium</grade>
+    <decreeTitle year="2008"/>
+  </cycle>
+  
+    //cycle[grade="Intermediate"]
+    //grade[."Intermediate"]/..
+   
+g.<name>Network Information Systems Administration</name>
+  <name>Web Application Development</name>
+  
+  //cycle[grade="Higher"]/name
+  //grade[.="Higher"]/../name
+  
+h.Administration of Computer Network Systems
+  Microcomputer systems and networks
+  
+  //@year[.<2010]/../../name
+  //cycle[decreeTittle/@year<2010]/name
+  
+i.Web application development
+  Microcomputer systems and networks
+  
+  //@year[.!=2009]/../../name
+  //@year[.=2008 or .=2010]/../../name
+     
+

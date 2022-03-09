@@ -1,0 +1,38 @@
+a.Web applications
+  Database management
+  Markup languages ​​and information management systems
+  Implementation of web applications
+  
+    //name
+    
+b.Database management
+  Markup languages ​​and information management systems
+  Implementation of web applications
+  
+    //module[cycle=NISA]/name
+    //cycle[.="NISA"]/../name
+  
+c.Web applications
+  Implementation of web applications
+  
+    //course[.=2]/../name
+    //module[course=2]/name
+  
+d.Web applications
+  Markup languages ​​and information management systems  
+  
+    //hoursWeekly[.<5]/../name
+    //module[hoursWeekly<5]/name
+    
+e.Database management
+  Markup languages ​​and information management systems
+  
+    //module[cycle=NISA and course=1]/name
+    //cycle[.="NISA"]/../course[.=1]/../name
+    
+f.4
+  5
+  5
+  
+    //hoursWeekly[.!3]
+    //hoursWeekly[.>3]
