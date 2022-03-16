@@ -21,28 +21,35 @@ function main(){
 
     let arrayBooks = [book1 , book2, book3];
 
-    let ul = document.createElement(ul);
-    let li = document.createElement(li);
+    let ul = document.createElement('ul');
+    let li = document.createElement('li');
+
+    let div = document.querySelector('div.list');
 
     div.appendChild(ul);
 
-    for (let i=0; arrayBooks.length; i ++ ){
+    for (let i=0; i < arrayBooks.length; i ++ ){
         let bName = arrayBooks[i].name;
         let bAuth = arrayBooks[i].author;
         let bRead = arrayBooks[i].readBook;
 
-        ul.appendChild(li);
-        li.appendChild(bName);
-        ul.appendChild(li);
-        li.appendChild(bAuth);
-        ul.appendChild(li);
         if (bRead == true){
-            let readed = document.createTextNode("Readed");
+            let string = document.createTextNode("You already readed"+bName+" by "+bAuth);
+            let li = document.createElement('li');
+            ul.append(li);
+            li.append(string);            
         }
         else{
-            let readed = document.createTextNode("Not Readed");
+            let string = document.createTextNode("You not readed "+bName+" by "+bAuth);
+            let li = document.createElement('li');
+            ul.append(li);
+            li.append(string);            
         }
-            li.appendChild(readed);
+    
     }
     
 }
+
+document.addEventListener('DOMContentLoaded',main);
+
+
