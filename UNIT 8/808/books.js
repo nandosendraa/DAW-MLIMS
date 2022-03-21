@@ -33,9 +33,57 @@ function listBooks(){
     sortButton.addEventListener('click', sort);
 }
 
+function showTextBox(){
+        let add = document.querySelector('form.add');
+
+        let ul = document.createElement("ul");
+        add.appendChild(ul);
+
+        let li = document.createElement("li");
+        ul.appendChild(li);
+
+        let textboxTitl = document.createElement("input");
+        textboxTitl.setAttribute("type","text");
+        textboxTitl.setAttribute("id","title");
+        
+
+        let labelTitl = document.createElement("label");
+        textboxTitl.setAttribute("for","title");
+        let contentTitl = document.createTextNode("Title: ");
+
+
+        li.appendChild(labelTitl);
+        li.appendChild(textboxTitl);
+        labelTitl.appendChild(contentTitl);
+
+        let li2 = document.createElement("li");
+        ul.appendChild(li2);
+        
+
+        let textboxAuth = document.createElement("input");
+        textboxAuth.setAttribute("type","text");
+        textboxAuth.setAttribute("id","author");
+        
+
+        let labelAuth = document.createElement("label");
+        textboxAuth.setAttribute("for","author");
+        let contentAuth = document.createTextNode("Author: ");
+
+
+        li2.appendChild(labelAuth);
+        li2.appendChild(textboxAuth);
+        labelAuth.appendChild(contentAuth);
+
+}
+
+function addBooks(){
+
+}
+
 function sort(){
     arrayBooks.sort();
 }
 
 document.addEventListener('DOMContentLoaded',howManyBooks);
 document.addEventListener('DOMContentLoaded',listBooks);
+document.addEventListener('DOMContentLoaded',showTextBox);
