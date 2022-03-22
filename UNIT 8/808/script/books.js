@@ -33,7 +33,7 @@ function listBooks(){
     sortButton.addEventListener('click', sort);
 }
 
-function showTextBox(){
+function showAddForm(){
         let add = document.querySelector('form.add');
 
         let ul = document.createElement("ul");
@@ -44,7 +44,7 @@ function showTextBox(){
 
         let textboxTitl = document.createElement("input");
         textboxTitl.setAttribute("type","text");
-        textboxTitl.setAttribute("id","title");
+        textboxTitl.setAttribute("name","title");
         
 
         let labelTitl = document.createElement("label");
@@ -62,7 +62,7 @@ function showTextBox(){
 
         let textboxAuth = document.createElement("input");
         textboxAuth.setAttribute("type","text");
-        textboxAuth.setAttribute("id","author");
+        textboxAuth.setAttribute("name","author");
         
 
         let labelAuth = document.createElement("label");
@@ -74,10 +74,72 @@ function showTextBox(){
         li2.appendChild(textboxAuth);
         labelAuth.appendChild(contentAuth);
 
+        let addButtonFinal = document.createElement("input");
+        addButtonFinal.setAttribute("type","button");
+        addButtonFinal.setAttribute("id","addFinal");
+        addButtonFinal.setAttribute("value","Add Book Final");
+
+        let body = document.querySelector('body');
+
+        body.append(addButtonFinal)
+
+        addButtonFinal.addEventListener('click', addBooksFinal);
+
+
+        let addButtonFirst = document.createElement("input");
+        addButtonFirst.setAttribute("type","button");
+        addButtonFirst.setAttribute("id","addFirst");
+        addButtonFirst.setAttribute("value","Add Book First");
+
+        body.append(addButtonFirst)
+
+        addButtonFirst.addEventListener('click', addBooksFirst);
+
 }
 
-function addBooks(){
+function addBooksFirst(){
+    let inputTitle = document.querySelector("input[name='title']");
+    let inputAuthor = document.querySelector("input[name='author']");
 
+    let title = inputTitle.value;
+    let author = inputAuthor.value;
+
+    let newBook = {
+        name: title,
+        author: author,
+        readBook: false
+    }
+
+    arrayBooks.unshift(newBook);
+
+    refreshBooks();
+}
+
+function addBooksFinal(){
+    let inputTitle = document.querySelector("input[name='title']");
+    let inputAuthor = document.querySelector("input[name='author']");
+
+    let title = inputTitle.value;
+    let author = inputAuthor.value;
+
+    let newBook = {
+        name: title,
+        author: author,
+        readBook: false
+    }
+
+    arrayBooks.push(newBook);
+
+    refreshBooks();
+}
+
+function refreshBooks() {
+    console.log();
+    let h3Books = document.querySelector("h3.listBooks")
+    let ul = h3Books.querySelector("ul");
+    h3Books.removeChild(ul);
+
+    listBooks();
 }
 
 function sort(){
@@ -86,4 +148,4 @@ function sort(){
 
 document.addEventListener('DOMContentLoaded',howManyBooks);
 document.addEventListener('DOMContentLoaded',listBooks);
-document.addEventListener('DOMContentLoaded',showTextBox);
+document.addEventListener('DOMContentLoaded',showAddForm);
