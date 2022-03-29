@@ -14,6 +14,12 @@ function showGallery(){
     let p = document.createElement('p');
     divGallery.append(p);
     p.append("by "+bAuth);
+
+    let cover = document.createElement('img');
+    divGallery.append(cover);
+    cover.src = 'media/' + arrayBooks[index].cover;
+    cover.alt = arrayBooks[index].bName;
+    
 }
 
 function buttonIndexPrevious(){
@@ -31,6 +37,7 @@ function buttonIndexPrevious(){
 function indexPrevious(){
     index --;
     refresh();
+    showGallery();
 }
 
 function buttonIndexAdd(){
@@ -48,15 +55,18 @@ function buttonIndexAdd(){
 function indexAdd(){
     index ++;
     refresh();
+    showGallery();
 }
 
 function refresh(){
     let divGallery = document.querySelector('div.gallery');
     let h3 = document.querySelector('h3');
     let p = document.querySelector('p');
+    let img = document.querySelector('img')
 
     divGallery.removeChild(h3);
     divGallery.removeChild(p);
+    divGallery.removeChild(img);
 
     let buttonNext = document.querySelector("#next");
     let buttonPrevious = document.querySelector("#previous");
@@ -64,7 +74,7 @@ function refresh(){
     divGallery.removeChild(buttonNext);
     divGallery.removeChild(buttonPrevious);
 
-    showGallery();
+    
     buttonIndexPrevious();
     buttonIndexAdd();
 }
