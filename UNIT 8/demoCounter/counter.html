@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Books - Demo</title>
+    </head>
+    <body>
+        <h1>Books</h1>
+        <h2>Task Demo</h2>
+        <script type="text/javascript">
+            // COOKIES
+            // SESSION
+            // LOCALSTORAGE I SESSIONSTORAGE
+            let aux = localStorage.getItem("counter");
+            let counter = {visit : 0};
+            if(aux === null){
+                counter = {visit: 0};
+            } else {
+                counter = JSON.parse(aux);
+            }
+                        
+            counter.visit++;
+            let counterSeriarlized = JSON.stringify(counter);
+            localStorage.setItem("counter",counterSerialized);
+
+            let text = `This is your visit #${counter.visit}`;
+
+            let p = document.createElement('p');
+            p.innerHTML = text;
+
+            document.body.append(p);
+        </script>
+    </body>
+</html>
